@@ -1,15 +1,17 @@
 function Animal() { }
-Animal.prototype.eat = function() { console.log("nom nom nom"); };
+Animal.prototype.eat = function() { console.log("nom nom nom") }
 
 function Dog() { }
 
-// Add your code below this line
+// inherite properties/methods from Animal
 Dog.prototype = Object.create(Animal.prototype);
+// we have to reasign constructor otherwise it still going to be have Animal value.
+// each time we inharite objects props from another object we have to change
 Dog.prototype.constructor = Dog;
+// add method after inheritance
 Dog.prototype.bark = function() {
     console.log("Woof!")
 }
-// Add your code above this line
 
 let beagle = new Dog();
 
